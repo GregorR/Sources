@@ -1005,7 +1005,8 @@ public class CreeperHeal extends JavaPlugin {
 		while(iterator.hasNext()) {
 			Date time = iterator.next();
 			if(new Date(time.getTime() + since).after(now) || since == 0) {        //if the explosion happened since x seconds
-				if(map.get(time).get(0).getWorld().getName().equals( world.getName())) {
+				List<BlockState> blocks = map.get(time);
+				if(blocks.size() > 0 && blocks.get(0).getWorld().getName().equals( world.getName())) {
 
 					replace_blocks(map.get(time));
 
